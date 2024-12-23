@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Rental Service</title>
+  <link rel="icon" href= 
+"https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png" 
+          type="image/x-icon">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    #app {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      border-radius: 8px;
+      animation: slideInDown 1s ease-in-out;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      transition: background-color 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: #575757;
+      border-radius: 5px;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      border-radius: 0 0 8px 8px;
+      animation: slideInUp 1s ease-in-out;
+    }
+
+    footer .social-media {
+      margin-top: 10px;
+    }
+
+    footer .social-media a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    footer .social-media a:hover {
+      color: #d3d3d3;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInDown {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+.car-grid, .services-grid, .testimonials-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.car-item, .service-item, .testimonial-item {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.car-item img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.cta-button {
+  display: block;
+  margin: 0 auto;
+  background-color: #28a745;
+}
+
+.cta-button:hover {
+  background-color: #218838;
+}
+
+  </style>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Car Rental Service</h1>
+      <nav>
+        <ul>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="admin.html">Admin Dashboard</a></li>
+          <li><a href="customer.html">Customer Dashboard</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+        <section id="featured-cars">
+          <h2>Featured Cars</h2>
+          <div class="car-grid">
+            <div class="car-item">
+              <img src="download.jfif" alt="Car 1">
+              <h3>Toyota Corolla</h3>
+              <p>Price: $20,000</p>
+              <button>Book Now</button>
+            </div>
+            <div class="car-item">
+              <img src="car1.avif" alt="Car 2">
+              <h3>Honda Civic</h3>
+              <p>Price: $22,000</p>
+              <button>Book Now</button>
+            </div>
+          </div>
+        </section>
+      
+        <section id="services">
+          <h2>Our Services</h2>
+          <div class="services-grid">
+            <div class="service-item">
+              <h3>Car Rental</h3>
+              <p>Choose from a wide range of cars for your travel needs.</p>
+            </div>
+            <div class="service-item">
+              <h3>Car Leasing</h3>
+              <p>Flexible leasing options to suit your business requirements.</p>
+            </div>
+            <div class="service-item">
+              <h3>Maintenance</h3>
+              <p>Regular maintenance to keep your car in top condition.</p>
+            </div>
+          </div>
+        </section>
+      
+        <section id="testimonials">
+          <h2>What Our Customers Say</h2>
+          <div class="testimonials-grid">
+            <div class="testimonial-item">
+              <p>"Excellent service and great cars! Highly recommend." - John Doe</p>
+            </div>
+            <div class="testimonial-item">
+              <p>"Smooth booking process and affordable rates." - Jane Smith</p>
+            </div>
+            <div class="testimonial-item">
+              <p>"Best car rental experience ever." - Sarah Lee</p>
+            </div>
+          </div>
+        </section>
+      
+        <section id="cta">
+          <h2>Ready to Book Your Car?</h2>
+          <button class="cta-button"><a href="customer.html">Get Started</a></button>
+          <a href="customer.html"></a>
+        </section>
+      </main>
+      
+    <footer>
+      <p>&copy; 2023 Car Rental Service</p>
+      <div class="social-media">
+        <a href="https://www.facebook.com" target="_blank">Facebook</a>
+        <a href="https://www.twitter.com" target="_blank">Twitter</a>
+        <a href="https://www.instagram.com" target="_blank">Instagram</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

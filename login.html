@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Car Rental Service</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+  <div class="login-container">
+    <form action="/login" method="post">
+      <h2>Login</h2>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+      <button type="submit">Login</button>
+      <a href="c.html"><button type="button" class="home-button">Home</button></a>
+    </form>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.querySelector('form');
+      
+      // Storing login credentials in local storage (for demonstration purposes)
+      const storedUsername = '';
+      const storedPassword = '';
+      localStorage.setItem('username', storedUsername);
+      localStorage.setItem('password', storedPassword);
+
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const username = document.querySelector('#username').value;
+        const password = document.querySelector('#password').value;
+        
+        const storedUsername = localStorage.getItem('username');
+        const storedPassword = localStorage.getItem('password');
+        
+        if (username === '' || password === '') {
+          alert('Please fill in both fields');
+        } else if (username === storedUsername && password === storedPassword) {
+          alert('Login successful!');
+          // Redirect to another page (e.g., dashboard)
+          window.location.href = 'admin.html';
+        } else {
+          alert('Incorrect username or password');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

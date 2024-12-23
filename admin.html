@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Car Rental Service</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-dashboard {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px 8px 0 0;
+  animation: slideInDown 1s ease-in-out;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 16px;
+  display: block;
+}
+
+main {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+#car-table,
+#rental-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#car-table th,
+#car-table td,
+#rental-table th,
+#rental-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+#car-table th,
+#rental-table th {
+  background-color: #f0f0f0;
+}
+
+#car-table td,
+#rental-table td {
+  background-color: #fff;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.action-buttons button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.action-buttons .edit {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.action-buttons .delete {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.action-buttons .edit:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+.action-buttons .delete:hover {
+  background-color: #c82333;
+  transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="admin-dashboard">
+    <header>
+      <h1>Admin Dashboard</h1>
+      <nav>
+        <ul>
+          <li><a href="c.html">Home</a></li>
+          <li><a href="#manage-cars">Manage Cars</a></li>
+          <li><a href="#manage-rentals">Manage Rentals</a></li>
+          <li><a href="addupdate.html">Add/Update Cars</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="manage-cars">
+        <h2>Manage Cars</h2>
+        <table id="car-table">
+          <thead>
+            <tr>
+              <th>Car ID</th>
+              <th>Model</th>
+              <th>Price</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Car rows will be dynamically populated here -->
+          </tbody>
+        </table>
+      </section>
+      <section id="manage-rentals">
+        <h2>Manage Rentals</h2>
+        <table id="rental-table">
+          <thead>
+            <tr>
+              <th>Rental ID</th>
+              <th>Car Model</th>
+              <th>Customer</th>
+              <th>Rental Date</th>
+              <th>Return Date</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Rental rows will be dynamically populated here -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+// Sample data
+const cars = [
+{ id: 1, model: 'Toyota Corolla', price: 20000, status: 'available' },
+{ id: 2, model: 'Honda Civic', price: 22000, status: 'rented' }
+];
+
+const carTableBody = document.querySelector('#car-table tbody');
+
+function loadCars() {
+carTableBody.innerHTML = ''; // Clear table body
+cars.forEach(car => {
+  const row = document.createElement('tr');
+  row.innerHTML = `
+    <td>${car.id}</td>
+    <td>${car.model}</td>
+    <td>${car.price}</td>
+    <td>${car.status}</td>
+    <td class="action-buttons">
+      <button class="edit">Edit</button>
+      <button class="delete">Delete</button>
+    </td>
+  `;
+  carTableBody.appendChild(row);
+});
+}
+
+loadCars();
+});
+document.addEventListener('DOMContentLoaded', function() {
+  // Sample rental data
+  const rentals = [
+    { id: 1, carModel: 'Toyota Corolla', customer: 'John Doe', rentalDate: '2023-04-01', returnDate: '2023-04-10', status: 'ongoing' },
+    { id: 2, carModel: 'Honda Civic', customer: 'Jane Smith', rentalDate: '2023-03-25', returnDate: '2023-04-05', status: 'returned' }
+  ];
+
+  const rentalTableBody = document.querySelector('#rental-table tbody');
+
+  function loadRentals() {
+    rentalTableBody.innerHTML = ''; // Clear table body
+    rentals.forEach(rental => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${rental.id}</td>
+        <td>${rental.carModel}</td>
+        <td>${rental.customer}</td>
+        <td>${rental.rentalDate}</td>
+        <td>${rental.returnDate}</td>
+        <td>${rental.status}</td>
+        <td class="action-buttons">
+          <button class="edit">Edit</button>
+          <button class="delete">Delete</button>
+        </td>
+      `;
+      rentalTableBody.appendChild(row);
+    });
+  }
+
+  loadRentals();
+});
+    
+</script>
+
+</body>
+</html>

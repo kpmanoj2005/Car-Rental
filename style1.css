@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .customer-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  h2 {
+    color: #444;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  #car-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  #car-list li {
+    background-color: #eaeaea;
+    padding: 15px;
+    border-radius: 5px;
+    width: 250px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  #car-list li:hover {
+    transform: scale(1.05);
+  }
+  
+  #car-list img {
+    max-width: 100%;
+    border-radius: 5px;
+  }
+  
+  #car-list h3 {
+    color: #333;
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+  
+  #car-list p {
+    color: #666;
+    font-size: 0.9em;
+  }
+  
+  #car-list button {
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  #car-list button:hover {
+    background-color: #218838;
+  }
+  

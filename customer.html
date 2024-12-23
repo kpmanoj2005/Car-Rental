@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Dashboard - Book Cars</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .customer-dashboard {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      border-radius: 8px 8px 0 0;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+
+    #car-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    #car-list li {
+      background-color: #eaeaea;
+      padding: 15px;
+      border-radius: 5px;
+      width: 250px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    #car-list li:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #car-list img {
+      max-width: 100%;
+      border-radius: 5px;
+      transition: transform 0.5s ease;
+    }
+
+    #car-list img:hover {
+      transform: scale(1.1);
+    }
+
+    #car-list h3 {
+      color: #333;
+      font-size: 1.2em;
+      margin: 10px 0;
+      animation: fadeInUp 1s ease-in;
+    }
+
+    #car-list p {
+      color: #666;
+      font-size: 0.9em;
+      animation: fadeInUp 1s ease-in 0.2s;
+    }
+
+    #car-list button {
+      padding: 10px;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+    }
+
+    #car-list button:hover {
+      background-color: #218838;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cars = [
+        { id: 1, model: 'Toyota Corolla', price: 20000, image: 'url_to_image', status: 'available' },
+        { id: 2, model: 'Honda Civic', price: 22000, image: 'url_to_image', status: 'available' }
+      ];
+
+      const carList = document.querySelector('#car-list');
+
+      function loadCars() {
+        carList.innerHTML = '';
+        cars.forEach(car => {
+          if (car.status === 'available') {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+              <img src="${car.image}" alt="${car.model}">
+              <h3>${car.model}</h3>
+              <p>Price: $${car.price}</p>
+              <button data-id="${car.id}">Book Now</button>
+            `;
+            carList.appendChild(listItem);
+          }
+        });
+
+        document.querySelectorAll('#car-list button').forEach(button => {
+          button.addEventListener('click', handleBook);
+        });
+      }
+
+      function handleBook(event) {
+        const carId = event.target.getAttribute('data-id');
+        const car = cars.find(car => car.id === parseInt(carId));
+        if (car) {
+          alert(`You have booked the ${car.model}`);
+          car.status = 'rented';
+          loadCars();
+        }
+      }
+
+      loadCars();
+    });
+  </script>
+</head>
+<body>
+  <div class="customer-dashboard">
+    <header>
+      <h1>Customer Dashboard</h1>
+      <nav>
+        <ul>
+          <li><a href="c.html">Home</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="book-cars">
+        <h2>Available Cars</h2>
+        <ul id="car-list">
+          <!-- Car items will be dynamically populated here -->
+        </ul>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
